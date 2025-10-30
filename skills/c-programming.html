@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Journey - Kavan Raval</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="../scripts/animations.js" defer></script>
+</head>
+<body class="antialiased">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-black/30">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../port.html" class="text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-300">
+                ← Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero Section -->
+            <div class="glass-card p-8 rounded-2xl mb-12 relative overflow-hidden reveal">
+                <div class="relative z-10">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                        C Programming <span class="text-purple-400">Journey</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-6">Mastering system-level programming and data structures</p>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">20+</div>
+                            <div class="text-sm text-gray-400">Projects</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">8+</div>
+                            <div class="text-sm text-gray-400">Data Structures</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">5+</div>
+                            <div class="text-sm text-gray-400">Algorithms</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-purple-400">1+</div>
+                            <div class="text-sm text-gray-400">Year</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Overview -->
+            <div class="stack-card p-8 mb-12 reveal">
+                <div class="stack-header mb-6">
+                    <i class="devicon-c-plain stack-icon"></i>
+                    <div>
+                        <h2 class="text-2xl font-semibold">Skills Overview</h2>
+                        <p class="text-gray-400">Core competencies and expertise</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-medium mb-4">Core C Programming</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Memory Management</span>
+                                    <span class="text-purple-400">85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Pointers & Arrays</span>
+                                    <span class="text-purple-400">90%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>File Operations</span>
+                                    <span class="text-purple-400">80%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-medium mb-4">Data Structures & Algorithms</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Linked Lists & Trees</span>
+                                    <span class="text-purple-400">85%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Sorting & Searching</span>
+                                    <span class="text-purple-400">80%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Graph Algorithms</span>
+                                    <span class="text-purple-400">75%</span>
+                                </div>
+                                <div class="skill-bar-bg">
+                                    <div class="skill-bar-progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Timeline -->
+            <div class="roadmap-container my-16">
+                <div class="roadmap-line"></div>
+                <h2 class="text-2xl font-semibold mb-6">Learning Timeline</h2>
+                <div class="relative">
+                    <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-purple-400"></div>
+                    <div class="space-y-8 relative">
+                        <div class="flex gap-6">
+                            <div class="w-8 h-8 rounded-full bg-purple-400 flex-shrink-0 relative z-10"></div>
+                            <div>
+                                <h3 class="text-xl font-medium">Started Learning C</h3>
+                                <p class="text-gray-400">Fundamentals, data types, and control structures</p>
+                                <p class="text-sm text-gray-500 mt-1">2025</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-8 h-8 rounded-full bg-purple-400 flex-shrink-0 relative z-10"></div>
+                            <div>
+                                <h3 class="text-xl font-medium">Data Structures</h3>
+                                <p class="text-gray-400">Arrays, linked lists, and basic algorithms</p>
+                                <p class="text-sm text-gray-500 mt-1">2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <h2 class="text-3xl font-bold mb-6">C Programming Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- Project cards -->
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Data Structure Library</h3>
+                    <p class="text-gray-400 mb-4">Comprehensive implementation of essential data structures including linked lists, trees, and graphs.</p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300">View on GitHub →</a>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Memory Manager</h3>
+                    <p class="text-gray-400 mb-4">Custom memory management system with allocation and garbage collection.</p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300">View on GitHub →</a>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">File System Simulator</h3>
+                    <p class="text-gray-400 mb-4">Basic file system implementation demonstrating low-level I/O operations.</p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300">View on GitHub →</a>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Algorithm Visualizer</h3>
+                    <p class="text-gray-400 mb-4">Console-based visualization of sorting and searching algorithms.</p>
+                    <a href="#" class="text-purple-400 hover:text-purple-300">View on GitHub →</a>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">C Programming Fundamentals</h3>
+                    <p class="text-gray-400 mb-4">Mastery of core C programming concepts and memory management</p>
+                    <p class="text-sm text-gray-500">Issued by: Platform Name</p>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Data Structures & Algorithms</h3>
+                    <p class="text-gray-400 mb-4">Advanced implementation of data structures and algorithms in C</p>
+                    <p class="text-sm text-gray-500">In Progress</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
+            <div>
+                <a href="../port.html" class="text-lg font-semibold text-white">Back to Portfolio</a>
+                <p class="text-sm text-gray-400 mt-1">C Programming Journey • Kavan Raval</p>
+            </div>
+            <div class="text-gray-400 text-sm">
+                &copy; <span id="current-year"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/animations.js"></script>
+</body>
+</html>

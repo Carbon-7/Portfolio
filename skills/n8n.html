@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n8n Automation Journey - Kavan Raval</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <script src="../scripts/animations.js" defer></script>
+</head>
+<body class="antialiased">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-black/30">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../port.html" class="text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-300">
+                ← Back to Portfolio
+            </a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-8">
+                n8n <span class="text-purple-400">Automation Journey</span>
+            </h1>
+
+            <!-- Expertise Overview -->
+            <div class="glass-card p-8 rounded-lg mb-12">
+                <h2 class="text-2xl font-semibold mb-6">Automation Expertise</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-medium">Core Skills</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Workflow automation design</li>
+                            <li>API integrations</li>
+                            <li>Custom node development</li>
+                            <li>Error handling and monitoring</li>
+                        </ul>
+                    </div>
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-medium">Integration Types</h3>
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>Web services and APIs</li>
+                            <li>Database operations</li>
+                            <li>File system automation</li>
+                            <li>Email and communication</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Showcase -->
+            <h2 class="text-3xl font-bold mb-6">Automation Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Data Processing Pipeline</h3>
+                    <p class="text-gray-400 mb-4">Automated data processing and transformation workflow</p>
+                    <div class="flex gap-4">
+                        <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">API Integration</span>
+                        <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Data Processing</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">Task Automation</h3>
+                    <p class="text-gray-400 mb-4">Automated recurring tasks and notifications</p>
+                    <div class="flex gap-4">
+                        <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Workflow</span>
+                        <span class="px-3 py-1 bg-purple-500/20 rounded-full text-sm">Scheduling</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="glass-card p-8 rounded-lg mb-12">
+                <h2 class="text-2xl font-semibold mb-6">Technical Capabilities</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-gray-800/30 rounded-lg">
+                        <h3 class="text-lg font-medium mb-3">Workflow Design</h3>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-800/30 rounded-lg">
+                        <h3 class="text-lg font-medium mb-3">API Integration</h3>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-gray-800/30 rounded-lg">
+                        <h3 class="text-lg font-medium mb-3">Error Handling</h3>
+                        <div class="skill-bar-bg">
+                            <div class="skill-bar-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
+            <div>
+                <a href="../port.html" class="text-lg font-semibold text-white">Back to Portfolio</a>
+                <p class="text-sm text-gray-400 mt-1">n8n Automation • Kavan Raval</p>
+            </div>
+            <div class="text-gray-400 text-sm">
+                &copy; <span id="current-year"></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/animations.js"></script>
+</body>
+</html>
