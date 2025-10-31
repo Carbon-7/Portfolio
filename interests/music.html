@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music - Kavan Raval</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body class="antialiased">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+    <!-- Dynamic playlist vibe overlay -->
+    <div id="mp-vibe" class="vibe-overlay vibe-focus"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="deco-grid"></div>
+        <div class="deco-circle lg" style="top: 20%; left: -200px;"></div>
+        <div class="deco-circle sm" style="top: 60%; right: -100px;"></div>
+        <div class="deco-circle lg" style="bottom: -200px; right: 10%;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-black/30">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html#interests" class="text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-300">← Back to Interests</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-card p-8 rounded-2xl mb-12 relative overflow-hidden">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19a2 2 0 11-4 0 2 2 0 014 0zm12-2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    <h1 class="text-4xl md:text-5xl font-bold">Music</h1>
+                </div>
+                <p class="text-gray-300">Playlists for focus and flow. Beats that pair well with code and long sessions.</p>
+            </div>
+
+            <!-- Mini Music Player (Spotify-inspired) -->
+            <div class="glass-card p-6 rounded-2xl mb-12 relative overflow-hidden player-card">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Artwork / Visual -->
+                    <div class="flex items-center justify-center">
+                        <div class="artwork w-40 h-40 md:w-56 md:h-56 rounded-2xl bg-gradient-to-br from-purple-500/30 to-pink-500/30 relative overflow-hidden">
+                            <div class="eq-bar" style="height:20px"></div>
+                            <div class="eq-bar" style="height:28px"></div>
+                            <div class="eq-bar" style="height:16px"></div>
+                            <div class="eq-bar" style="height:24px"></div>
+                        </div>
+                    </div>
+
+                    <!-- Meta & Controls -->
+                    <div>
+                        <div class="mb-3">
+                            <div id="mp-title" class="text-xl font-semibold">Focus Flow — Demo Track</div>
+                            <div id="mp-artist" class="text-sm text-gray-400">Lo‑fi • Chill • Instrumental</div>
+                        </div>
+
+                        <div class="music-progress mb-4">
+                            <input id="mp-seek" type="range" min="0" max="100" value="0" class="music-seek w-full"/>
+                            <div class="flex justify-between text-xs text-gray-400 mt-1"><span id="mp-cur">0:00</span><span id="mp-dur">0:00</span></div>
+                        </div>
+
+                        <div class="flex items-center justify-center gap-4">
+                            <button id="mp-prev" class="btn btn-secondary px-3 py-2">⏮</button>
+                            <button id="mp-play" class="btn btn-primary px-6 py-2 rounded-full">▶</button>
+                            <button id="mp-next" class="btn btn-secondary px-3 py-2">⏭</button>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-400">
+                            <label class="flex items-center gap-2">Vol <input id="mp-vol" type="range" min="0" max="1" step="0.01" value="0.8" class="music-seek w-28"/></label>
+                            <label class="flex items-center gap-2">
+                                Add songs
+                                <input id="mp-add" type="file" accept="audio/mpeg,audio/mp3" multiple class="hidden"/>
+                                <button type="button" id="mp-add-btn" class="btn btn-secondary px-3 py-1">Choose</button>
+                            </label>
+                        </div>
+
+                        <!-- Hidden audio element -->
+                        <audio id="mp-audio" preload="metadata"></audio>
+                    </div>
+                </div>
+
+               
+
+                <!-- Playlists (add your own .mp3 inside each list or using Add songs) -->
+                <div class="hidden" id="mp-playlists">
+                    <div class="playlist" data-list="focus">
+                        <div class="track" data-src="../SpotiDownloader.com - wildflower - yung kai.mp3" data-title="Wildflower — yung kai" data-artist="Indie • Chill" data-thoughts=""></div>
+                        <div class="track" data-src="assets/music/sunrise-keys.mp3" data-title="Sunrise Keys" data-artist="Piano • Ambient" data-thoughts=""></div>
+                    </div>
+                    <div class="playlist" data-list="chill">
+                        <div class="track" data-src="assets/music/lofi-lane.mp3" data-title="Lo‑fi Lane" data-artist="Lo‑fi" data-thoughts=""></div>
+                    </div>
+                    <div class="playlist" data-list="energy">
+                        <div class="track" data-src="assets/music/edm-kick.mp3" data-title="EDM Kick" data-artist="EDM" data-thoughts=""></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Playlists selector -->
+            <div class="max-w-4xl mx-auto mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button class="glass-card relative overflow-hidden group hover:scale-105 transition-transform block p-5 text-left playlist-btn" data-list="focus">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13"/></svg>
+                            <div class="flex-1">
+                                <div class="text-lg font-semibold">Focus Flow</div>
+                                <div class="text-sm text-gray-400">Lo‑fi • Piano • Ambient</div>
+                            </div>
+                            <span class="text-purple-400 text-xs">Play →</span>
+                        </div>
+                    </button>
+                    <button class="glass-card relative overflow-hidden group hover:scale-105 transition-transform block p-5 text-left playlist-btn" data-list="chill">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 012 2v12a3 3 0 11-3-3h1"/></svg>
+                            <div class="flex-1">
+                                <div class="text-lg font-semibold">Chill Vibes</div>
+                                <div class="text-sm text-gray-400">Indie • Acoustic • Soft beats</div>
+                            </div>
+                            <span class="text-purple-400 text-xs">Play →</span>
+                        </div>
+                    </button>
+                    <button class="glass-card relative overflow-hidden group hover:scale-105 transition-transform block p-5 text-left playlist-btn" data-list="energy">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                        <div class="flex items-start gap-3">
+                            <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            <div class="flex-1">
+                                <div class="text-lg font-semibold">Energy Boost</div>
+                                <div class="text-sm text-gray-400">EDM • Hip‑hop • Workout</div>
+                            </div>
+                            <span class="text-purple-400 text-xs">Play →</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto mb-12">
+                <a href="https://open.spotify.com/" target="_blank" rel="noopener" class="glass-card relative overflow-hidden group hover:scale-105 transition-transform block">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                    <div class="p-5 flex items-center gap-4">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.41 17.318a.747.747 0 01-1.03.248c-2.824-1.725-6.38-2.118-10.57-1.17a.748.748 0 01-.324-1.459c4.56-1.013 8.45-.565 11.51 1.335.355.216.466.68.247 1.046zm1.477-3.27a.936.936 0 01-1.288.31c-3.232-1.983-8.152-2.557-11.969-1.418a.936.936 0 11-.53-1.799c4.283-1.26 9.681-.62 13.375 1.616.43.264.566.83.312 1.291zM19.8 10.02c-3.68-2.187-9.784-2.39-13.275-1.326a1.122 1.122 0 11-.636-2.154c4.02-1.188 10.914-.945 15.16 1.476a1.121 1.121 0 01-1.248 1.924z"/></svg>
+                        <div>
+                            <div class="text-lg font-semibold">Visit my Spotify</div>
+                            <div class="text-sm text-gray-400">Play full playlists and follow</div>
+                        </div>
+                        <span class="ml-auto text-purple-400 text-sm">Open →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
+            <div>
+                <a href="../index.html" class="text-lg font-semibold text-white">Back to Portfolio</a>
+                <p class="text-sm text-gray-400 mt-1">Interests • Music</p>
+            </div>
+            <div class="text-gray-400 text-sm">&copy; <span id="current-year"></span></div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/animations.js"></script>
+    <script>
+        // Minimal themed music player with dynamic vibes (no lyrics), supports playlists + adding files
+        (function(){
+            const audio = document.getElementById('mp-audio');
+            const titleEl = document.getElementById('mp-title');
+            const artistEl = document.getElementById('mp-artist');
+            const playBtn = document.getElementById('mp-play');
+            const nextBtn = document.getElementById('mp-next');
+            const prevBtn = document.getElementById('mp-prev');
+            const seek = document.getElementById('mp-seek');
+            const vol = document.getElementById('mp-vol');
+            const cur = document.getElementById('mp-cur');
+            const dur = document.getElementById('mp-dur');
+            const thoughts = document.getElementById('mp-thoughts');
+            const eqBars = document.querySelectorAll('.eq-bar');
+            const vibeEl = document.getElementById('mp-vibe');
+            let currentList = 'focus';
+            const playlistsRoot = document.getElementById('mp-playlists');
+            function getTracks(list){
+                const root = playlistsRoot.querySelector(`.playlist[data-list="${list}"]`);
+                return root ? Array.from(root.querySelectorAll('.track')) : [];
+            }
+            let tracks = getTracks(currentList);
+            const addBtn = document.getElementById('mp-add-btn');
+            const addInput = document.getElementById('mp-add');
+            let index = 0;
+            let rafId = null;
+
+            function fmt(t){
+                if (!isFinite(t)) return '0:00';
+                const m = Math.floor(t/60);
+                const s = Math.floor(t%60).toString().padStart(2,'0');
+                return `${m}:${s}`;
+            }
+            function load(i){
+                index = (i+tracks.length)%tracks.length;
+                const tr = tracks[index];
+                audio.src = tr.getAttribute('data-src');
+                titleEl.textContent = tr.getAttribute('data-title');
+                artistEl.textContent = tr.getAttribute('data-artist');
+                thoughts.textContent = tr.getAttribute('data-thoughts');
+                seek.value = 0; cur.textContent = '0:00'; dur.textContent = '0:00';
+            }
+            let beatTimer = null;
+            function play(){ audio.play(); playBtn.textContent = '⏸'; animateEq(true); startBeat(); }
+            function pause(){ audio.pause(); playBtn.textContent = '▶'; animateEq(false); stopBeat(); }
+            function animateEq(on){
+                eqBars.forEach((b,idx)=>{
+                    b.style.width = '4px';
+                    b.style.margin = '0 2px';
+                    b.style.borderRadius = '2px';
+                    b.style.background = 'linear-gradient(180deg, rgba(168,85,247,0.8), rgba(236,72,153,0.6))';
+                    b.style.transition = 'height 300ms ease';
+                    if (on){
+                        const h = 14 + (idx*4);
+                        b.style.animation = `eqPulse ${800+idx*100}ms ease-in-out infinite`;
+                        b.style.height = h+'px';
+                    } else {
+                        b.style.animation = 'none';
+                        b.style.height = '12px';
+                    }
+                });
+            }
+            function tick(){
+                const c = audio.currentTime || 0;
+                const d = audio.duration || 0;
+                seek.value = d ? (c/d*100) : 0;
+                cur.textContent = fmt(c); dur.textContent = fmt(d);
+                rafId = requestAnimationFrame(tick);
+            }
+            function seekTo(){ const d = audio.duration||0; audio.currentTime = d*(seek.value/100); }
+
+            // Vibes: palette per playlist and subtle motion while playing
+            const vibePalettes = {
+                focus: { v1: '#22d3ee', v2: '#a855f7', v3: '#60a5fa' },
+                chill: { v1: '#34d399', v2: '#60a5fa', v3: '#a78bfa' },
+                energy: { v1: '#f59e0b', v2: '#ef4444', v3: '#a855f7' }
+            };
+            const vibeBpm = { focus: 92, chill: 74, energy: 128 };
+            function applyVibe(list){
+                const p = vibePalettes[list] || vibePalettes.focus;
+                if (vibeEl){
+                    vibeEl.style.setProperty('--v1', p.v1);
+                    vibeEl.style.setProperty('--v2', p.v2);
+                    vibeEl.style.setProperty('--v3', p.v3);
+                    vibeEl.classList.remove('vibe-focus','vibe-chill','vibe-energy');
+                    vibeEl.classList.add(`vibe-${list}`);
+                }
+            }
+            function startBeat(){
+                document.body.classList.add('beat-on');
+                const bpm = vibeBpm[currentList] || 100;
+                const interval = Math.max(280, Math.round(60000 / bpm));
+                stopBeat();
+                beatTimer = setInterval(() => {
+                    document.body.classList.add('beat-impulse');
+                    setTimeout(()=> document.body.classList.remove('beat-impulse'), 160);
+                }, interval);
+            }
+            function stopBeat(){ document.body.classList.remove('beat-on','beat-impulse'); if (beatTimer) { clearInterval(beatTimer); beatTimer = null; } }
+
+            playBtn.addEventListener('click', ()=> (audio.paused? play(): pause()));
+            nextBtn.addEventListener('click', ()=>{ load(index+1); play(); });
+            prevBtn.addEventListener('click', ()=>{ load(index-1); play(); });
+            seek.addEventListener('input', seekTo);
+            vol.addEventListener('input', ()=> audio.volume = parseFloat(vol.value));
+            audio.addEventListener('loadedmetadata', ()=>{ dur.textContent = fmt(audio.duration); });
+            audio.addEventListener('play', ()=>{ cancelAnimationFrame(rafId); tick(); document.body.classList.add('vibe-playing','vibe-pulse'); });
+            audio.addEventListener('pause', ()=>{ cancelAnimationFrame(rafId); document.body.classList.remove('vibe-playing'); stopBeat(); });
+            audio.addEventListener('ended', ()=>{ load(index+1); play(); });
+
+            // Playlists switching
+            document.querySelectorAll('.playlist-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentList = btn.getAttribute('data-list');
+                    tracks = getTracks(currentList);
+                    load(0);
+                    play();
+                    applyVibe(currentList);
+                });
+            });
+
+            // Initialize
+            audio.volume = parseFloat(vol.value);
+            if (!tracks.length) {
+                // fallback: try any playlist
+                const any = playlistsRoot.querySelector('.playlist');
+                if (any) { currentList = any.getAttribute('data-list'); tracks = getTracks(currentList); }
+            }
+            load(0);
+            applyVibe(currentList);
+
+            // Add local files to playlist
+            if (addBtn && addInput){
+                addBtn.addEventListener('click', ()=> addInput.click());
+                addInput.addEventListener('change', (e)=>{
+                    const files = Array.from(e.target.files||[]);
+                    files.forEach(file => {
+                        const src = URL.createObjectURL(file);
+                        const base = file.name.replace(/\.[^/.]+$/, '');
+                        const div = document.createElement('div');
+                        div.className = 'track';
+                        div.setAttribute('data-src', src);
+                        div.setAttribute('data-title', base);
+                        div.setAttribute('data-artist', 'Local File');
+                        div.setAttribute('data-thoughts', '');
+                        let listRoot = playlistsRoot.querySelector(`.playlist[data-list="${currentList}"]`);
+                        if (!listRoot) { listRoot = document.createElement('div'); listRoot.className='playlist'; listRoot.setAttribute('data-list', currentList); playlistsRoot.appendChild(listRoot); }
+                        listRoot.appendChild(div);
+                        tracks.push(div);
+                    });
+                    if (files.length && audio.paused){ load(tracks.length - files.length); }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
+
+

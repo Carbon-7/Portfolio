@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction • Kavan Raval</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="deco-grid"></div>
+        <div class="deco-circle lg" style="top: 20%; left: -200px;"></div>
+        <div class="deco-circle sm" style="top: 60%; right: -100px;"></div>
+        <div class="deco-circle lg" style="bottom: -200px; right: 10%;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-black/30">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-300">Kavan Raval</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-28 flex-1">
+        <div class="max-w-2xl md:max-w-3xl mx-auto">
+            <div class="glass-card p-10 md:p-12 rounded-2xl relative overflow-hidden text-center group">
+                <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-pink-500"></div>
+                <div class="flex items-center justify-center mb-5 text-purple-400">
+                    <div class="w-14 h-14 rounded-full bg-purple-500/10 flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.25)]">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 18.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"/></svg>
+                    </div>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-extrabold mb-2">Under Construction</h1>
+                <p class="text-gray-400 mb-7">This area is being built. Please check back soon for the finished experience.</p>
+                <div class="flex items-center justify-center gap-3 flex-wrap">
+                    <a href="index.html" class="btn btn-primary">← Back to Home</a>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-800 mt-12">
+        <div class="container mx-auto px-6 py-8 flex items-center justify-between">
+            <a href="index.html" class="text-lg font-semibold text-white">Kavan Raval</a>
+            <div class="text-gray-400 text-sm">&copy; <span id="current-year"></span></div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animations.js"></script>
+</body>
+</html>
+

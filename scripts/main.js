@@ -110,31 +110,7 @@ if (currentYearEl) {
     });
 })();
 
-// Project Filtering with multiple categories
-const projectFilters = document.querySelectorAll('.filter-btn');
-const projects = document.querySelectorAll('.project-card');
-
-projectFilters.forEach(filter => {
-    filter.addEventListener('click', () => {
-        // Remove active class from all filters
-        projectFilters.forEach(f => f.classList.remove('active'));
-        // Add active class to clicked filter
-        filter.classList.add('active');
-        
-        const category = filter.dataset.filter;
-        
-        projects.forEach(project => {
-            const categories = project.dataset.category.split(' ');
-            if (category === 'all' || categories.includes(category)) {
-                project.style.display = '';
-                setTimeout(() => project.style.opacity = '1', 0);
-            } else {
-                project.style.opacity = '0';
-                setTimeout(() => project.style.display = 'none', 300);
-            }
-        });
-    });
-});
+// Project filters are handled in project navigation script to keep behavior consistent
 
 // Interactive Python Code Editor
 let editor;
@@ -281,4 +257,68 @@ const achievementObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.achievement-number').forEach(counter => {
     achievementObserver.observe(counter);
+});
+
+// Toggle past highlights (not emphasized)
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('toggle-highlights');
+    const content = document.getElementById('highlights-content');
+    if (!btn || !content) return;
+    btn.addEventListener('click', () => {
+        const isOpen = !content.classList.contains('hidden');
+        content.classList.toggle('hidden');
+        btn.textContent = isOpen ? 'View details' : 'Hide details';
+    });
+});
+
+// Copy email helper
+document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copy-email');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText('hi.kavanraval@gmail.com');
+            copyBtn.textContent = 'Copied!';
+            setTimeout(() => copyBtn.textContent = 'Copy Email', 1500);
+        } catch (e) {
+            alert('Copy failed');
+        }
+    });
+});
+
+// Contact form: construct a mailto link with subject and body
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name')?.value || '';
+        const email = document.getElementById('email')?.value || '';
+        const subject = document.getElementById('subject')?.value || 'New message from portfolio';
+        const platform = document.getElementById('platform')?.value || 'Email';
+        const message = document.getElementById('message')?.value || '';
+
+        const body = `Name: ${name}\nEmail: ${email}\nPreferred Platform: ${platform}\n\n${message}`;
+        const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=hi.kavanraval@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailto = `mailto:hi.kavanraval@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Try opening Gmail in a new tab; fallback to mailto if blocked
+        const win = window.open(gmailCompose, '_blank');
+        if (!win || win.closed || typeof win.closed === 'undefined') {
+            window.location.href = mailto;
+        }
+    });
+});
+
+// Email card: open Gmail compose directly
+document.addEventListener('DOMContentLoaded', () => {
+    const gmailLink = document.querySelector('a[href^="mailto:hi.kavanraval@gmail.com"], a#open-gmail');
+    if (!gmailLink) return;
+    gmailLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        const subject = 'Hello from your portfolio';
+        const gmailCompose = `https://mail.google.com/mail/?view=cm&fs=1&to=hi.kavanraval@gmail.com&su=${encodeURIComponent(subject)}`;
+        const win = window.open(gmailCompose, '_blank');
+        if (!win) window.location.href = `mailto:hi.kavanraval@gmail.com?subject=${encodeURIComponent(subject)}`;
+    });
 });

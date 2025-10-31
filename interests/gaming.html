@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming - Kavan Raval</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .gm-shell { display:grid; grid-template-columns: 260px 1fr; gap: 1rem; }
+        @media (max-width: 1024px){ .gm-shell { grid-template-columns: 1fr; } }
+        .gm-side { position:sticky; top:96px; align-self:start; }
+        .gm-section { display:none; opacity:0; transform:translateY(8px); transition:opacity .28s ease, transform .28s ease; }
+        .gm-section.active { display:block; opacity:1; transform:none; }
+        .gm-pill { padding:.5rem 1rem; border-radius:9999px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); color:#d4d4d8; transition:all .22s ease; }
+        .gm-pill:hover { color:#a855f7; border-color:#a855f7; }
+        .gm-pill.active { background:rgba(168,85,247,.12); color:#a855f7; border-color:#a855f7; }
+        .gm-badge { font-size:.7rem; padding:.25rem .5rem; border-radius:9999px; background:rgba(168,85,247,.14); color:#e9d5ff; }
+        .gm-sub { color:#a855f7; font-size:.8rem; letter-spacing:.04em; }
+        .gm-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+    </style>
+    </head>
+<body class="antialiased">
+    <div class="cursor-outline"></div>
+    <div class="cursor-dot"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div class="deco-grid"></div>
+        <div class="deco-circle lg" style="top: 20%; left: -200px;"></div>
+        <div class="deco-circle sm" style="top: 60%; right: -100px;"></div>
+        <div class="deco-circle lg" style="bottom: -200px; right: 10%;"></div>
+    </div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-sm bg-black/30">
+        <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="../index.html#interests" class="text-2xl font-bold text-white hover:text-purple-400 transition-colors duration-300">← Back to Interests</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 pt-24">
+        <div class="max-w-6xl mx-auto">
+            <!-- Hero -->
+            <div class="glass-card p-8 rounded-2xl mb-8 relative overflow-hidden">
+                <div class="flex items-center gap-4 mb-3">
+                    <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a3 3 0 013 3v6a3 3 0 01-3 3h-2l-3-3H10l-3 3H5a3 3 0 01-3-3v-6a3 3 0 013-3h2m6 0h-4m4 0V5a2 2 0 10-4 0v3"/></svg>
+                    <h1 class="text-4xl md:text-5xl font-bold">Gaming</h1>
+                </div>
+                <p class="text-gray-300">Strategy, rhythm and teamwork. I love clean racecraft, tight utility, and steady improvement.</p>
+            </div>
+
+            <div class="gm-shell">
+                <!-- Sidebar: Tabs + Sort -->
+                <aside class="gm-side">
+                    <div class="glass-card p-4 rounded-lg mb-4">
+                        <div class="gm-sub mb-2">Collection</div>
+                        <div class="flex flex-col gap-2">
+                            <button class="gm-pill active" data-target="#sec-played">Played</button>
+                            <button class="gm-pill" data-target="#sec-playing">Playing</button>
+                            <button class="gm-pill" data-target="#sec-wishlist">Wishlist</button>
+                            <button class="gm-pill" data-target="#sec-dev">Dev Journey</button>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg mb-4">
+                        <div class="gm-sub mb-2">Sort</div>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="gm-pill" data-sort="az">A–Z</button>
+                            <button class="gm-pill" data-sort="recent">Recently Added</button>
+                            <button class="gm-pill" data-sort="genre">Genre</button>
+                        </div>
+                    </div>
+                    <div class="glass-card p-4 rounded-lg">
+                        <div class="gm-sub mb-2">Quick Stats</div>
+                        <div class="space-y-2 text-sm text-gray-300">
+                            <div class="flex justify-between"><span>Preferred roles</span><span class="gm-badge">Controller / IGL</span></div>
+                            <div class="flex justify-between"><span>Focus blocks</span><span class="gm-badge">45–60 min</span></div>
+                            <div class="flex justify-between"><span>Rig</span><span class="gm-badge">KBM / Controller</span></div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main content -->
+                <section>
+                    <!-- PLAYED -->
+                    <div id="sec-played" class="gm-section active">
+                        <div class="glass-card p-4 rounded-lg mb-3">
+                            <div class="gm-toolbar">
+                                <div class="gm-sub">Games I’ve Played</div>
+                                <div class="tag-row">
+                                    <button class="tag-chip" data-genre="All">All</button>
+                                    <button class="tag-chip" data-genre="Racing">Racing</button>
+                                    <button class="tag-chip" data-genre="Shooter">Shooter</button>
+                                    <button class="tag-chip" data-genre="Indie">Indie</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gm-grid" data-panel="played">
+                            <!-- sample cards -->
+                            <div class="game-card" data-title="Valorant" data-genre="Shooter" data-added="20240612">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop" alt="Valorant"></div>
+                                <div class="game-meta"><div class="title">Valorant</div><div class="game-tags"><span class="game-tag">Shooter</span><span class="game-tag">Team</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="Forza Horizon" data-genre="Racing" data-added="20230501">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="Forza"></div>
+                                <div class="game-meta"><div class="title">Forza Horizon</div><div class="game-tags"><span class="game-tag">Racing</span><span class="game-tag">Open World</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="F1 23" data-genre="Racing" data-added="20230820">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1520975922284-2aa4ca9244f2?q=80&w=1200&auto=format&fit=crop" alt="F1 23"></div>
+                                <div class="game-meta"><div class="title">F1 23</div><div class="game-tags"><span class="game-tag">Racing</span><span class="game-tag">Single/MP</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="CS:GO / CS2" data-genre="Shooter" data-added="20200115">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop" alt="CS:GO"></div>
+                                <div class="game-meta"><div class="title">CS:GO / CS2</div><div class="game-tags"><span class="game-tag">Shooter</span><span class="game-tag">Tactics</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="Need for Speed" data-genre="Racing" data-added="20181201">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="NFS"></div>
+                                <div class="game-meta"><div class="title">Need for Speed</div><div class="game-tags"><span class="game-tag">Arcade</span><span class="game-tag">Racing</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PLAYING -->
+                    <div id="sec-playing" class="gm-section">
+                        <div class="glass-card p-4 rounded-lg mb-3">
+                            <div class="gm-toolbar">
+                                <div class="gm-sub">Currently Playing</div>
+                                <input id="gm-search" class="gm-search" placeholder="Search title..." />
+                            </div>
+                        </div>
+                        <div class="gm-grid" data-panel="playing">
+                            <div class="game-card" data-title="Assetto Corsa" data-genre="Sim" data-added="20240211">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1603484477859-abe6a73f9366?q=80&w=1200&auto=format&fit=crop" alt="Assetto Corsa"></div>
+                                <div class="game-meta"><div class="title">Assetto Corsa</div><div class="game-tags"><span class="game-tag">Sim</span><span class="game-tag">Track</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="EA WRC" data-genre="Rally" data-added="20241010">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1520975922284-2aa4ca9244f2?q=80&w=1200&auto=format&fit=crop" alt="EA WRC"></div>
+                                <div class="game-meta"><div class="title">EA WRC</div><div class="game-tags"><span class="game-tag">Rally</span><span class="game-tag">Sim</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="Valorant" data-genre="Shooter" data-added="20241030">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1200&auto=format&fit=crop" alt="Valorant"></div>
+                                <div class="game-meta"><div class="title">Valorant</div><div class="game-tags"><span class="game-tag">Scrims</span><span class="game-tag">Utility</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WISHLIST -->
+                    <div id="sec-wishlist" class="gm-section">
+                        <div class="glass-card p-4 rounded-lg mb-3">
+                            <div class="gm-sub">Wishlist</div>
+                        </div>
+                        <div class="gm-grid" data-panel="wishlist">
+                            <div class="game-card" data-title="Gran Turismo 7" data-genre="Racing" data-added="20250105">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" alt="GT7"></div>
+                                <div class="game-meta"><div class="title">Gran Turismo 7</div><div class="game-tags"><span class="game-tag">Racing</span><span class="game-tag">Console</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="Hollow Knight: Silksong" data-genre="Indie" data-added="20241001">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1580128633042-1c07c6e3a6d3?q=80&w=1200&auto=format&fit=crop" alt="Silksong"></div>
+                                <div class="game-meta"><div class="title">Hollow Knight: Silksong</div><div class="game-tags"><span class="game-tag">Indie</span><span class="game-tag">Metroidvania</span></div></div>
+                            </div>
+                            <div class="game-card" data-title="iRacing" data-genre="Sim" data-added="20250210">
+                                <div class="game-cover"><img src="https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1200&auto=format&fit=crop" alt="iRacing"></div>
+                                <div class="game-meta"><div class="title">iRacing</div><div class="game-tags"><span class="game-tag">Online</span><span class="game-tag">Sim</span></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dev Journey (as a tab, integrated visually) -->
+                    <div id="sec-dev" class="gm-section">
+                        <div class="glass-card p-4 rounded-lg mb-3"><div class="gm-sub">My Game Dev Journey</div></div>
+                        <div class="gm-grid">
+                            <div class="gm-milestone">
+                                <div class="step">Phase 1</div>
+                                <div class="m-title">Unity & C# Basics</div>
+                                <div class="text-gray-400 text-sm">Scenes, prefabs, input system, simple cameras.</div>
+                            </div>
+                            <div class="gm-milestone">
+                                <div class="step">Phase 2</div>
+                                <div class="m-title">Driving Prototype</div>
+                                <div class="text-gray-400 text-sm">Low‑poly track, car controller, lap timing HUD.</div>
+                            </div>
+                            <div class="gm-milestone">
+                                <div class="step">Phase 3</div>
+                                <div class="m-title">Polish & Feel</div>
+                                <div class="text-gray-400 text-sm">Camera lag, tire sfx, subtle post‑processing.</div>
+                            </div>
+                            <div class="gm-milestone">
+                                <div class="step">Phase 4</div>
+                                <div class="m-title">Tiny Release</div>
+                                <div class="text-gray-400 text-sm">Ship a web build with a short track and scoreboard.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story -->
+                    <div class="glass-card p-6 rounded-lg mt-6">
+                        <h3 class="text-xl font-semibold mb-2">My Gaming Story</h3>
+                        <p class="text-gray-400">Started with couch co‑op and arcades, drifted into sim racing and tactical shooters. I enjoy the mix of precision and team play—clean lines, good comms, and steady, repeatable improvement.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-black/40 border-t border-gray-800 mt-16">
+        <div class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
+            <div>
+                <a href="../index.html" class="text-lg font-semibold text-white">Back to Portfolio</a>
+                <p class="text-sm text-gray-400 mt-1">Interests • Gaming</p>
+            </div>
+            <div class="text-gray-400 text-sm">&copy; <span id="current-year"></span></div>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script src="../scripts/animations.js"></script>
+    <script>
+        (function(){
+            const tabButtons = document.querySelectorAll('.gm-pill[data-target]');
+            const sortButtons = document.querySelectorAll('.gm-pill[data-sort]');
+            const sections = Array.from(document.querySelectorAll('.gm-section'));
+            const search = document.getElementById('gm-search');
+            const genreChips = document.querySelectorAll('.tag-chip');
+
+            tabButtons.forEach(btn => btn.addEventListener('click', () => {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const target = btn.getAttribute('data-target');
+                sections.forEach(sec => sec.classList.toggle('active', '#'+sec.id === target));
+            }));
+
+            function sortPanel(panel, mode){
+                const cards = Array.from(panel.querySelectorAll('.game-card'));
+                let sorted = cards;
+                if (mode === 'az') sorted = cards.sort((a,b)=> a.dataset.title.localeCompare(b.dataset.title));
+                if (mode === 'recent') sorted = cards.sort((a,b)=> (parseInt(b.dataset.added||0) - parseInt(a.dataset.added||0)));
+                if (mode === 'genre') {
+                    const order = ['Racing','Sim','Rally','Shooter','Indie','Arcade'];
+                    const rank = g => { const i = order.indexOf(g); return i === -1 ? 999 : i; };
+                    sorted = cards.sort((a,b)=> rank(a.dataset.genre) - rank(b.dataset.genre) || a.dataset.title.localeCompare(b.dataset.title));
+                }
+                sorted.forEach(el => panel.appendChild(el));
+            }
+            function applyFilters(panel){
+                const q = (search?.value || '').toLowerCase();
+                const activeChip = Array.from(genreChips).find(c => c.classList.contains('active'));
+                const genre = activeChip ? activeChip.getAttribute('data-genre') : 'All';
+                panel.querySelectorAll('.game-card').forEach(card => {
+                    const matchTitle = card.dataset.title.toLowerCase().includes(q);
+                    const matchGenre = genre === 'All' || (card.dataset.genre === genre);
+                    card.style.display = matchTitle && matchGenre ? '' : 'none';
+                });
+            }
+            sortButtons.forEach(btn => btn.addEventListener('click', () => {
+                sortButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const activeSection = sections.find(sec => sec.classList.contains('active')) || sections[0];
+                sortPanel(activeSection.querySelector('[data-panel]'), btn.getAttribute('data-sort'));
+                applyFilters(activeSection.querySelector('[data-panel]'));
+            }));
+
+            if (search) search.addEventListener('input', () => {
+                const activeSection = sections.find(sec => sec.classList.contains('active')) || sections[0];
+                applyFilters(activeSection.querySelector('[data-panel]'));
+            });
+            genreChips.forEach(ch => ch.addEventListener('click', () => {
+                genreChips.forEach(c => c.classList.remove('active'));
+                ch.classList.add('active');
+                const activeSection = sections.find(sec => sec.classList.contains('active')) || sections[0];
+                applyFilters(activeSection.querySelector('[data-panel]'));
+            }));
+        })();
+    </script>
+</body>
+</html>
+
+

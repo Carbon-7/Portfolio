@@ -29,9 +29,9 @@ const addFloatingElements = () => {
     }
 };
 
-// Optimized mouse movement handler for stack cards
+// Optimized mouse movement handler for interactive cards
 const handleStackCardHover = () => {
-    const cards = document.querySelectorAll('.stack-card');
+    const cards = document.querySelectorAll('.stack-card, .project-card, .social-link');
     let isThrottled = false;
     
     cards.forEach(card => {
@@ -153,6 +153,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize critical animations
     handleStackCardHover();
+
+    // Auto-apply subtle reveal animations sitewide (lightweight fade/translate)
+    (function applyAutoReveals(){
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const selectors = [
+            '.glass-card', '.stack-card', '.project-card', '.achievement-card',
+            '.contact-card', '.social-link', '.tech-stack > *', 'section h2',
+            '.nav-link', '.btn', '.project-group', '.stack-header', '.progress-ring',
+            '.roadmap-container .glass-card'
+        ];
+        const elements = Array.from(document.querySelectorAll(selectors.join(',')));
+        elements.forEach((el, i) => {
+            if (!el.classList.contains('reveal')) el.classList.add('reveal');
+            // gentle stagger up to 300ms
+            const delay = Math.min(i * 30, 300);
+            el.style.transitionDelay = `${delay}ms`;
+        });
+    })();
     
     // Use a single IntersectionObserver for all animated elements
     const observer = new IntersectionObserver(
@@ -182,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     
     // Observe all animated elements
-    document.querySelectorAll('.reveal, .roadmap-item, .progress-ring, .stack-card').forEach(el => {
+    document.querySelectorAll('.reveal, .roadmap-item, .progress-ring, .stack-card, .project-card').forEach(el => {
         observer.observe(el);
     });
 });
